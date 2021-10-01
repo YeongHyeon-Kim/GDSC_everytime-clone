@@ -132,33 +132,30 @@ const Index = () => {
             </div>
             {/* 각종 홈페이지 이동*/}
             <div className="link-list-wrapper">
-                <Link className="item-wrapper" to="https://gdsc.community.dev/seoul-national-university-of-science-and-technology/">
+                <a className="item-wrapper" href="https://gdsc.community.dev/seoul-national-university-of-science-and-technology/">
                     <div className="img_wrapper">
                         <img src={gdsc} alt="GDSC seoultech 페이지" />
                     </div>
                     <p className="text-wrapper">GDSC 홈</p>
-                </Link>
-
-                <Link className="item-wrapper" to="https://google.co.kr">
+                </a>
+                <a className="item-wrapper" href="https://google.co.kr">
                     <div className="img_wrapper">
                         <img src={google} alt="Google 페이지" />
                     </div>
                     <p className="text-wrapper">Google</p>
-                </Link>
-
-                <Link className="item-wrapper" to="https://www.seoultech.ac.kr/">
+                </a>
+                <a className="item-wrapper" href="https://www.seoultech.ac.kr/">
                     <div className="img_wrapper">
                         <img src={seoultech} alt="서울과학기술대학교 페이지" />
                     </div>
                     <p className="text-wrapper">SeoulTech</p>
-                </Link>
-
-                <Link className="item-wrapper" to="https://www.seoultech.ac.kr/life/sch/common/">
+                </a>
+                <a className="item-wrapper" href="https://www.seoultech.ac.kr/service/info/notice/">
                     <div className="img_wrapper">
                         <img src={notice} alt="학사공지 페이지" />
                     </div>
                     <p className="text-wrapper">학사공지</p>
-                </Link>
+                </a>
             </div>
             {/* 즐겨찾는 게시판 */}
             <Myboard boardList={dummyMyboard} />
