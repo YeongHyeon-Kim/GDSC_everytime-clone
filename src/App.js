@@ -15,6 +15,9 @@ const App = () => {
                 <Route exact path="/board" component={Board} />
                 <Route exact path="/message" component={Message} />
                 <Route exact path="/message/:no" component={DetailMessage} />
+
+                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/login" component={Login} />
             </Switch>
         </BrowserRouter>
     );
