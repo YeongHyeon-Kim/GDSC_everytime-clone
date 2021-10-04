@@ -19,6 +19,7 @@ const DetailWrapper = styled.div`
     font-size: 14px;
     .detail-message-top {
         display: flex;
+        margin-bottom: 40px;
 
         .message-sender {
             position: absolute;
