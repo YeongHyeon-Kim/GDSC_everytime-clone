@@ -1,11 +1,34 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 // import { COLORS } from "../../../components/Colors";
 import MainInput from "../../../components/Input/MainInput";
 import MainButton from "../../../components/Button/MainButton";
+import xVector from "../../../assets/vector/xVector.svg";
 
-const MainWrapper = styled.div``;
+const MainWrapper = styled.div`
+    margin: 10px;
+    .title {
+        display: flex;
+        margin-bottom: 30px;
+        justify-content: space-between;
+        .title-text {
+            font-size: 15px;
+        }
+        img {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    .input-wrapper {
+        margin-bottom: 20px;
+        .text {
+            font-size: 8px;
+            margin-bottom: 5px;
+        }
+    }
+`;
 
 const Index = () => {
     const [id, setId] = useState("");
@@ -100,18 +123,45 @@ const Index = () => {
     // ------------------------------
     return (
         <MainWrapper>
-            <MainInput value={id} type="text" onChange={onChangeId} placeholder="아이디를 입력해주세요." />
-            {errorNum === 2 && (
-                <span style={{ color: "red" }}>&nbsp;&nbsp;&nbsp;&nbsp;Id는 4자 이상, 영어 숫자로만 작성되어야 합니다.</span>
-            )}
-            <MainInput value={password} type="password" onChange={onChangePassword} placeholder="비밀번호를 입력해주세요." />
-            {errorNum === 1 && <span style={{ color: "red" }}>&nbsp;&nbsp;&nbsp;&nbsp;비밀번호가 조건에 맞지 않습니다.</span>}
-            <MainInput value={repassword} type="password" onChange={onChangeRePassword} placeholder="비밀번호를 다시 입력해주세요." />
-            {errorNum === 3 && <span style={{ color: "red" }}>&nbsp;&nbsp;&nbsp;&nbsp;비밀번호가 일치하지 않습니다.</span>}
-            <MainInput value={name} type="text" onChange={onChangeName} placeholder="이름를 입력해주세요." />
-            <MainInput value={email} type="text" onChange={onChangeEmail} placeholder="이메일을 입력해주세요." />
-            <MainInput value={nickname} type="text" onChange={onChangeNickname} placeholder="닉네임을 입력해주세요." />
-            <MainInput value={major} type="text" onChange={onChangeMajor} placeholder="전공을 입력해주세요." />
+            <div className="title">
+                <p className="title-text">회원가입</p>
+                <Link to="/login">
+                    <img src={xVector} alt="취소버튼" />
+                </Link>
+            </div>
+            <div className="input-wrapper">
+                <p className="text">아이디</p>
+                <MainInput value={id} type="text" onChange={onChangeId} placeholder="아이디를 입력해주세요." />
+                {errorNum === 2 && (
+                    <span style={{ color: "red" }}>&nbsp;&nbsp;&nbsp;&nbsp;Id는 4자 이상, 영어 숫자로만 작성되어야 합니다.</span>
+                )}
+            </div>
+            <div className="input-wrapper">
+                <p className="text">비밀번호</p>
+                <MainInput value={password} type="password" onChange={onChangePassword} placeholder="비밀번호를 입력해주세요." />
+                {errorNum === 1 && <span style={{ color: "red" }}>&nbsp;&nbsp;&nbsp;&nbsp;비밀번호가 조건에 맞지 않습니다.</span>}
+            </div>
+            <div className="input-wrapper">
+                <p className="text">비밀번호 확인</p>
+                <MainInput value={repassword} type="password" onChange={onChangeRePassword} placeholder="비밀번호를 다시 입력해주세요." />
+                {errorNum === 3 && <span style={{ color: "red" }}>&nbsp;&nbsp;&nbsp;&nbsp;비밀번호가 일치하지 않습니다.</span>}
+            </div>
+            <div className="input-wrapper">
+                <p className="text">이름</p>
+                <MainInput value={name} type="text" onChange={onChangeName} placeholder="이름를 입력해주세요." />
+            </div>
+            <div className="input-wrapper">
+                <p className="text">이메일</p>
+                <MainInput value={email} type="text" onChange={onChangeEmail} placeholder="이메일을 입력해주세요." />
+            </div>
+            <div className="input-wrapper">
+                <p className="text">닉네임</p>
+                <MainInput value={nickname} type="text" onChange={onChangeNickname} placeholder="닉네임을 입력해주세요." />
+            </div>
+            <div className="input-wrapper">
+                <p className="text">전공</p>
+                <MainInput value={major} type="text" onChange={onChangeMajor} placeholder="전공을 입력해주세요." />
+            </div>
             <MainButton text="회원가입" onClick={checkAll} />
         </MainWrapper>
     );
