@@ -41,7 +41,7 @@ const Index = () => {
     const [major, setMajor] = useState("");
 
     const [errorNum, setErrorNum] = useState(false);
-    // error 1 -> password error, 2 -> id, error 3 -> password check error
+    // error 1 -> password error, 2 -> id, error 3 -> password check error 4-> email check
     const onChangeId = (e) => {
         const { value } = e.target;
         if (value.length < 4) {
@@ -81,9 +81,18 @@ const Index = () => {
     const onChangeName = (e) => {
         setName(e.target.value);
     };
+    const emailCheck = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
     const onChangeEmail = (e) => {
-        setEmail(e.target.value);
+        const { value } = e.target;
+        if (!emailCheck.test(value)) {
+            setErrorNum(4);
+        } else {
+            setErrorNum(0);
+        }
+        setEmail(value);
     };
+
     const onChangeNickname = (e) => {
         setNickname(e.target.value);
     };
@@ -99,6 +108,8 @@ const Index = () => {
                 alert("아이디 조건이 맞지 않습니다.");
             } else if (errorNum === 3) {
                 alert("패스워드가 일치하지 않습니다.");
+            } else if (errorNum === 4) {
+                alert("이메일 타입이 잘못되었습니다.");
             }
         } else {
             if (!id) {
@@ -153,6 +164,7 @@ const Index = () => {
             <div className="input-wrapper">
                 <p className="text">이메일</p>
                 <MainInput value={email} type="text" onChange={onChangeEmail} placeholder="이메일을 입력해주세요." />
+                {errorNum === 4 && <span style={{ color: "red" }}>&nbsp;&nbsp;&nbsp;&nbsp;이메일 타입으로 작성해주세요.</span>}
             </div>
             <div className="input-wrapper">
                 <p className="text">닉네임</p>
