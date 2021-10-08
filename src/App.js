@@ -12,6 +12,7 @@ import MyPage from "./pages/Mypage/Main";
 import Auth from "./pages/Mypage/Auth/Main";
 import AuthDetail from "./pages/Mypage/Auth/Detail";
 import EditDetail from "./pages/Mypage/EditDetail";
+import HomeSetting from "./pages/HomeSetting";
 const App = () => {
     return (
         <BrowserRouter>
@@ -26,6 +27,7 @@ const App = () => {
                 <Route exact path="/mypage/auth" component={Auth} />
                 <Route exact path="/mypage/auth/detail" component={AuthDetail} />
                 <Route exact path="/mypage/edit" component={EditDetail} />
+                <Route exact path="/homeset" component={HomeSetting} />
             </Switch>
         </BrowserRouter>
     );

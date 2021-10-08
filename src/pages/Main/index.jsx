@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import styled from "styled-components";
 import BottomNavigation from "../../layout/BottomNavigation";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { COLORS } from "../../components/Colors";
 
 import gdsc from "../../assets/icon/google.svg";
@@ -111,6 +111,36 @@ const MainWrapper = styled.div`
 `;
 
 const Index = () => {
+    const history = useHistory();
+
+    const onClickBtn = () => {
+        history.push("/homeset");
+    };
+
+    const [setting, setSetting] = useState({
+        isMine: true,
+        isRealtime: true,
+        isHot: true,
+    });
+
+    //setting lifecycle을 위한 코드
+    useEffect(() => {
+        const defaultSetting = { isMine: true, isRealtime: true, isHot: true };
+        const storage = window.localStorage.getItem("setting");
+
+        if (!storage) {
+            //유저가 처음 방문했을때
+            window.localStorage.setItem("setting", JSON.stringify(defaultSetting));
+        } else {
+            const storageJson = JSON.parse(storage);
+            setSetting({
+                isMine: storageJson.isMine,
+                isHot: storageJson.isHot,
+                isRealtime: storageJson.isRealtime,
+            });
+        }
+    }, []);
+
     return (
         <MainWrapper>
             {/* 상단 네비게이션*/}
@@ -158,14 +188,16 @@ const Index = () => {
                 </a>
             </div>
             {/* 즐겨찾는 게시판 */}
-            <Myboard boardList={dummyMyboard} />
-
-            <RealTimeBoardWrapper boardList={dummyRealtime} />
-
-            <PopularWrapper boardList={dummyHot} />
+            {setting.isMine && <Myboard boardList={dummyMyboard} />}
+            {setting.isRealtime && <RealTimeBoardWrapper boardList={dummyRealtime} />}
+            {setting.isHot && <PopularWrapper boardList={dummyHot} />}
             <Link className="home-setting-wrapper" to="/homeset">
                 <p className="home-setting">홈 화면 설정</p>
             </Link>
+
+            <button className="home-setting-wrapper" onClick={onClickBtn}>
+                <p className="home-setting">홈 화면 설정</p>
+            </button>
             {/*하단 네비게이션*/}
             <div className="bottom-navigation">
                 <BottomNavigation activeNum={1} />
