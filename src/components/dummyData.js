@@ -179,3 +179,18 @@ export const dummyAuth = {
     detail: "게시판 등 모든 커뮤니티 이용이 가능하며, 재학 증명 자료를 통해 인증",
     url: "detail",
 };
+
+export const dummyBoard = [
+    {
+        title: "인기 게시물",
+        date: "12:19",
+        like: 13,
+        comments: 3,
+    },
+    {
+        title: "임시 데이터지롱~",
+        date: "12:19",
+        like: 3,
+        comments: 13,
+    },
+];
