@@ -13,6 +13,10 @@ import Auth from "./pages/Mypage/Auth/Main";
 import AuthDetail from "./pages/Mypage/Auth/Detail";
 import EditDetail from "./pages/Mypage/EditDetail";
 import HomeSetting from "./pages/HomeSetting";
+import BoardList from "./pages/BoardList";
+import BoardDetail from "./pages/BoardDetail";
+import Post from "./pages/Post";
+import Find from "./pages/Find";
 const App = () => {
     return (
         <BrowserRouter>
@@ -28,6 +32,10 @@ const App = () => {
                 <Route exact path="/mypage/auth/detail" component={AuthDetail} />
                 <Route exact path="/mypage/edit" component={EditDetail} />
                 <Route exact path="/homeset" component={HomeSetting} />
+                <Route exact path="/board/list/:no" component={BoardList} />
+                <Route exact path="/board/detail/:no" component={BoardDetail} />
+                <Route exact path="/board/post" component={Post} />
+                <Route exact path="/search" component={Find} />
             </Switch>
         </BrowserRouter>
     );
