@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { COLORS } from "../../../components/Colors";
 import pinOff from "../../../assets/icon/pinOff.svg";
@@ -31,7 +32,9 @@ const SliderBoardItem = ({ board }) => {
             <button onClick={onChangePin}>
                 <img src={pin ? pinOn : pinOff} alt="핀" />
             </button>
-            <p className="board-title">{board.title}</p>
+            <Link to={`/board/list/${board.link}`}>
+                <p className="board-title">{board.title}</p>
+            </Link>
         </SliderBoardItemWrapper>
     );
 };
