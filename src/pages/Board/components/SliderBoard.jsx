@@ -9,6 +9,7 @@ const BoardWrapper = styled.div`
     border-width: 2px;
     border-style: solid;
     padding: 5px;
+    margin-top: 15px;
 `;
 
 const SliderBoard = ({ boardList }) => {
