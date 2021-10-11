@@ -82,31 +82,37 @@ export const dummyPin = [
         title: "자유게시판",
         isOn: true,
         isNew: true,
+        link: "1",
     },
     {
         title: "비밀게시판",
         isOn: true,
         isNew: true,
+        link: "2",
     },
     {
         title: "졸업생게시판",
         isOn: false,
         isNew: true,
+        link: "3",
     },
     {
         title: "새내기게시판",
         isOn: true,
         isNew: true,
+        link: "4",
     },
     {
         title: "시사 이슈",
         isOn: true,
         isNew: true,
+        link: "5",
     },
     {
         title: "정보게시판",
         isOn: false,
         isNew: true,
+        link: "6",
     },
 ];
 
@@ -182,15 +188,40 @@ export const dummyAuth = {
 
 export const dummyBoard = [
     {
+        num: "1",
         title: "인기 게시물",
         date: "12:19",
         like: 13,
         comments: 3,
     },
     {
+        num: "2",
         title: "임시 데이터지롱~",
         date: "12:19",
         like: 3,
         comments: 13,
+    },
+];
+
+export const dummyBoardList = {
+    num: "1",
+    title: "GDSC 게시글 첫번째",
+    content: "gdsc 클론코딩 첫번째 게시글입니다.",
+    date: "10/09 12:19",
+    like: 1,
+    comments: 2,
+    author: "익명",
+};
+
+export const dummyComments = [
+    {
+        author: "익명",
+        date: "10/09 12:23",
+        content: "gdsc very good",
+    },
+    {
+        author: "익명",
+        date: "10/09 12:25",
+        content: "다들 화이팅!",
     },
 ];
