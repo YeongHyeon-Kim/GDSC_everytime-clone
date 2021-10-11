@@ -45,7 +45,7 @@ const BoardItemWrapper = styled.div`
 const BoardItem = ({ boardItem }) => {
     return (
         <BoardItemWrapper>
-            <Link className="item-wrapper" to="/board/detail/">
+            <Link className="item-wrapper" to={`/board/detail/${boardItem.num}`}>
                 <p className="board-title">{boardItem.title}</p>
                 <div className="item-bottom-nav">
                     <p className="item-date">{boardItem.date}</p>
